@@ -40,7 +40,7 @@ class ParseCat5ka(Parse5ka):
 
     def run(self):
         """
-        gets categories, then runs parent run func
+        gets categories, then runs overwrote parent run func (saves files for every yield result)
         """
         self._get_categories()
         for category_dict in self._parse(self.star_url):

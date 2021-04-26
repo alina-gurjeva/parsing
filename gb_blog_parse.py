@@ -1,3 +1,4 @@
+import datetime
 import time
 import typing
 
@@ -43,7 +44,7 @@ class GbBlogParse:
     def task_creator(self, url, tags_list, callback):
         links = set(
             urljoin(url, itm.attrs.get("href"))
-            for itm in tags_list.find_all("a")
+            for itm in tags_list
             if itm.attrs.get("href")
         )
         for link in links:
@@ -60,9 +61,24 @@ class GbBlogParse:
 
     def parse_post(self, url, soup):
         title_tag = soup.find("h1", attrs={"class": "blogpost-title"})
+        images = soup.find_all("img")
+        time_public = soup.find("time", attrs={"itemprop":"datePublished"}).attrs.get("datetime")
+        time_in_datetime = datetime.datetime.strptime(time_public, '%Y-%m-%dT%H:%M:%S%z')
+        author = soup.find("div", attrs={"itemprop": "author"})
+        user_profile_link = urljoin("https://gb.ru", author.parent.attrs.get("href"))
+        id_article = soup.find("div", attrs={"class":"referrals-social-buttons-small-wrapper"}).attrs.get("data-minifiable-id")
+        res = requests.get('https://gb.ru/api/v2/comments?commentable_type=Post', params={'commentable_id': id_article})
+        comments_all_structure = res.json()
+        comments_formatted = {comment['comment']['user']['full_name']:comment['comment']['body'] for comment in comments_all_structure}
+
         data = {
             "url": url,
             "title": title_tag.text,
+            "img": images[0].attrs.get("src"),
+            "time_public": time_in_datetime,
+            "author": author.text,
+            "user_profile_link": user_profile_link,
+            "comments": comments_formatted
         }
         return data
 

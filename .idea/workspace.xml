@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d045f114-1b7c-46bc-89b7-aa5b8bbd4465" name="Default Changelist" comment="">
+    <list default="true" id="d045f114-1b7c-46bc-89b7-aa5b8bbd4465" name="Default Changelist" comment="установка модуля sqlalchemy">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -62,9 +62,30 @@
       <option name="presentableId" value="Default" />
       <updated>1619032995548</updated>
     </task>
+    <task id="LOCAL-00001" summary="установка модуля sqlalchemy">
+      <created>1619719704724</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1619719704724</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="установка модуля sqlalchemy" />
+    <option name="LAST_COMMIT_MESSAGE" value="установка модуля sqlalchemy" />
   </component>
 </project>

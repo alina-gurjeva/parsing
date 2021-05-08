@@ -7,7 +7,7 @@ from pymongo import MongoClient
 
 
 class GbParsePipeline:
-    def process_item(self, item):
+    def process_item(self, item, spider):
         return item
 
 
